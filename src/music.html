@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Music - Trevor Farthing</title>
+    <link href="https://cdn.jsdelivr.net/npm/round-slider@1.6.0/dist/roundslider.min.css" rel="stylesheet">
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.6.0/dist/roundslider.min.js"></script>
+    <!-- build:js script/music.min.js -->
+    <script src="script/soundcloud.js"></script>
+    <script src="script/music.js"></script>
+    <!-- endbuild -->
+    <script src="script/slideMenu.js"></script>
+  </head>
+  <body class="blackBackground">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink" style="color:white;">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <div class="musicOuterBlock" id="backgroundBlock">
+      <header>
+        <nav>
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
+          <span class="mobileNavText">
+            TREVOR FARTHING - MUSIC
+          </span>
+          <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
+          <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
+          <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
+          <div class="dropdown" id="dropdown">
+            <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </a>
+            <span id="musicNavSpan" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </span>
+            <div class="dropdownContent">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
+          <a href="contact.html" class="navLink grayShadow">CONTACT</a>
+        </nav>
+      </header>
+      <div class="mainContent fadeIn">
+        <div class="containBlockWide">
+          <div class="musicBox">
+            <span class="songBox" id="firstSongBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="PuzzlePieces"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Puzzle Pieces
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="FlyAway"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Fly Away
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="Dawn"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Dawn
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/daylight.JPG">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="Daylight"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Daylight
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/daylight">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/wolves.JPG">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="WolvesRemix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Wolves (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/selena-gomez-x-marshmello-wolves-nerves-remix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/memento.JPG">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="Memento"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Memento
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/memento">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/fetish.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="FetishRemix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Fetish (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/selena-gomez-fetish-nerves-remix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/dms.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="DMs"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  DMs (#SELFIE Pt. II)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/dms-selfie-pt-ii">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/lastchance.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="LastChance"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Kaskade x Taylor Swift Mashup
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music/i-knew-you-were-trouble-last-chance-taylor-swift-x-kaskade-mashup">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/feeling_this.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="FeelingThisIntro"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Feeling This (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/feeling-this-intro">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/my_own_worst_enemy.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="MyOwnWorstEnemyRemix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  My Own Worst Enemy (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/lit-my-own-worst-enemy-nerves-remix-1">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/heavy.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="HeavyRemix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Heavy (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music/linkin-park-ft-kiiara-heavy-frt-strs-remix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/dungeon.jpeg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="Dungeon"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Welcome to the Dungeon
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music/welcome-to-the-dungeon-mini-mix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/competition_mix.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="CompetitionMix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  2017 Competition Mix
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music/2017-competition-mix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/boys_of_summer.jpeg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="BoysofSummerRemix2"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Boys of Summer (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/don-henley-x-bell-x1-the-boys-of-summer-tfar-remix-1">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/pumpkin_spice_mix.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="PumpkinSpiceMix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Fall '16 Pumpkin Spice Mix
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/fall-2016-pumpkin-spice-mix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/chillax_mix.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="ChillaxMix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Summer '16 Chillax Mix
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/summer-2016-chillax-mix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/clocks.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="ClocksRemix"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Clocks (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/tfar/clocks-coldplay-t-far-house-remix">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/hands_of_fools.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="TheSun"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  The Sun
+                </span>
+                <a class="musicLink bandcampLink" href="https://struckred.bandcamp.com/album/hands-of-fools-ep">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/hands_of_fools.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="HandsOfFools"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Hands of Fools
+                </span>
+                <a class="musicLink bandcampLink" href="https://struckred.bandcamp.com/album/hands-of-fools-ep">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/lost_at_sea.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="Damaging"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Damaging
+                </span>
+                <a class="musicLink bandcampLink" href="https://struckred.bandcamp.com/album/lost-at-sea-ep">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/lost_at_sea.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="LostAtSea"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Lost at Sea
+                </span>
+                <a class="musicLink bandcampLink" href="https://struckred.bandcamp.com/album/lost-at-sea-ep">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/sonance.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="SheWasMine"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  She Was Mine (Cover)
+                </span>
+                <a class="musicLink bandcampLink" href="https://sonanceband.bandcamp.com">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/sonance.jpg">
+              <div class="playButton">
+                <i class="fas fa-play playIcon" id="SweatherWeather"></i>
+                <div class="circleSlider"></div>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Sweather Weather (Cover)
+                </span>
+                <a class="musicLink bandcampLink" href="https://sonanceband.bandcamp.com">
+                  <i class="fab fa-bandcamp"></i>
+                </a>
+              </div>
+            </span>
+        </div>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1068923353&amp;auto_play=false" id="sc-player" style="display:none">
+        </iframe>
+      </div>
+    </div>
+    <footer class="transparentFooter">
+      <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+        <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+      </a>
+      <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+        <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+      </a>
+      <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+        trevordfarthing@gmail.com
+      </a>
+    </footer>
+  </div></body>
+</html>

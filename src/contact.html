@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact - Trevor Farthing</title>
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="script/slideMenu.js"></script>
+  </head>
+  <body class="blackBackground">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink" style="color:white;">CONTACT</a>
+    </div>
+    <header>
+      <nav>
+        <span id="menuButton" onclick="openNav()">
+          <i class="fas fa-bars"></i>
+        </span>
+        <span class="mobileNavText">
+          TREVOR FARTHING - CONTACT
+        </span>
+        <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
+        <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
+        <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
+        <div class="dropdown">
+          <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </a>
+          <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </span>
+          <div class="dropdownContent">
+            <a href="music.html">SONGS</a>
+            <a href="videos.html">VIDEOS</a>
+          </div>
+        </div>
+        <a href="contact.html" class="navLink grayShadow" style="border-bottom: 1px solid white;">CONTACT</a>
+      </nav>
+    </header>
+    <div class="contactOuterBlock">
+      <section class="mainContactBlock fadeIn">
+        <div class="contactHeading">
+          <h1 id="contactTitle">Let's get in touch.</h1>
+        </div>
+       <div class="containBlock">
+         <div class="contactPhotoBlock">
+           <img src="assets/beach3.png" class="contactPhoto">
+         </div>
+       </div>
+       <div class="containBlockWide contactLinkBlock">
+         <a href="mailto:trevordfarthing@gmail.com" class="contactLink" id="contactLinkEMAIL">
+           <i class="fas fa-envelope-square contactLinkIcon" id="contactLinkIconEMAIL"></i>
+         </a>
+         <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="contactLink" id="contactLinkLI">
+           <i class="fab fa-linkedin contactLinkIcon" id="contactLinkIconLI"></i>
+         </a>
+         <a href="https://www.facebook.com/trevor.farthing" class="contactLink" id="contactLinkFB">
+           <i class="fab fa-facebook" id="contactLinkIconFB"></i>
+         </a>
+         <a href="https://instagram.com/trevor_farthing" class="contactLink" id="contactLinkINSTA">
+           <i class="fab fa-instagram contactLinkIcon" id="contactLinkIconINSTA"></i>
+         </a>
+         <a href="https://www.youtube.com/user/tfavre" class="contactLink" id="contactLinkYT">
+           <i class="fab fa-youtube" id="contactLinkIconYT"></i>
+         </a>
+       </div>
+      </section>
+    </div>
+    <footer class="homeFooter" id="contactFooter">
+      <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink" id="homeLink">
+        <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+      </a>
+      <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+        <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+      </a>
+      <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+        trevordfarthing@gmail.com
+      </a>
+    </footer>
+  </body>
+</html>

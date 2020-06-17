@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Projects - Trevor Farthing</title>
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="script/slideMenu.js"></script>
+  </head>
+  <body class="blackBackground">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink" style="color:white;">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <header>
+      <nav>
+        <span id="menuButton" onclick="openNav()">
+          <i class="fas fa-bars"></i>
+        </span>
+        <span class="mobileNavText">
+          TREVOR FARTHING - PROJECTS
+        </span>
+        <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
+        <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
+        <a href="projects.html" class="navLink grayShadow" style="border-bottom: 1px solid white;">PROJECTS</a>
+        <div class="dropdown">
+          <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </a>
+          <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </span>
+          <div class="dropdownContent">
+            <a href="music.html">SONGS</a>
+            <a href="videos.html">VIDEOS</a>
+          </div>
+        </div>
+        <a href="contact.html" class="navLink grayShadow">CONTACT</a>
+      </nav>
+    </header>
+    <div class="containBlockWide">
+      <div class="projImage1">
+        <div class="caption fadeIn">
+          <h1 class="projectsHeading">What am I working on?</h1>
+          <div class="subtitle">
+            <a href="#c-labs" style="color:#ffcb63;">CHECK IT OUT</a>
+          </div>
+        </div>
+      </div>
+      <section style="position:relative;" id="c-labs" class="fadeIn shortAnimateDelay">
+        <div class="projSectionInfo">
+          <div class="projectPhotos">
+            <img src="assets/germany.png" class="projectPhoto">
+            <img src="assets/c-labs_logo2.png" class="projectPhoto">
+            <img src="assets/professional.png" class="projectPhoto">
+          </div>
+          <h3 class="projSectionTitle">C-LABS</h3>
+          <p class="projectsParagraph">
+            I began working at C-Labs as a software development intern during the summer of 2016.  After graduation, I accepted a full time role
+            with the company and helped develop solutions for their then parent company TRUMPF, one of the world's
+            largest providers of machine tools.
+            <br><br>
+            Much of my experience has involved creating plugins for the C-DEngine, C-Labs'
+            state-of-the-art "real" industrial IoT service.  Over the course of my two full-time years with C-Labs, I enhanced their software's storage
+            capabilities, creating ways to store application data in databases such as SQL Server, Oracle, and InfluxDB.
+            My contributions also include testing and improving their pub-sub messaging system through a Docker test framework and writing comprehensive documentation on various
+            C-DEngine developer topics.
+            <br><br>
+            I even received the opportunity to represent C-Labs internationally at Hannover Messe in Germany, one of the largest industrial-technology trade conventions in the world.
+            See what C-Labs is up to <a class="inlineLink" href="https://www.c-labs.com/index.html">here</a> and try out their (newly open-source) software that I contributed to
+            <a class="inlineLink" href="https://github.com/TRUMPF-IoT/C-DEngine">here</a>.
+          </p>
+        </div>
+      </section>
+      <section style="position:relative;" class="fadeIn shortAnimateDelay">
+        <div class="projSectionInfo">
+          <div class="projectPhotos">
+            <img src="assets/inter_codes.png" class="projectPhoto">
+            <img src="assets/inter_codes_logo.png" class="projectPhoto">
+            <img src="assets/inter_codes2.png" class="projectPhoto">
+          </div>
+          <h3 class="projSectionTitle">INTER.CODES</h3>
+          <p class="projectsParagraph">
+            At the beginning of September 2017, I began working with three other developers on Inter.Codes,
+            our senior-design project at Gonzaga University.  Inter.Codes is a platform established by a small company
+            named Liquid Crystal Studios, and seeks to serve as an all-in-one solution for software developers.  It is a
+            cloud-based development environment, version control system, and project management suite that aims to
+            produce collaboration and visibility into all aspects of the development process.
+            <br><br>
+            As part of the LCS team, I focused primarily on frontend design and development in Vue.js, building the components of the UI and interaction
+            with our backend API.  After graduation, I took on a larger role as Secretary of Inter.Codes LLC while continuing to contribute
+            to the development of the user interface.  Although we are currently in the process of revamping the site, check out our progress
+            <a class="inlineLink" href="http://dev.inter.codes">here</a>.
+          </p>
+        </div>
+      </section>
+      <section style="position:relative;margin-bottom:50px" class="fadeIn shortAnimateDelay">
+        <div class="projSectionInfo" id="musicProjectSection">
+          <div class="projectPhotos">
+            <img src="assets/nerves.png" class="projectPhoto">
+            <img src="assets/guitar.png" class="projectPhoto">
+            <img src="assets/shades_of_green2.png" class="projectPhoto">
+          </div>
+          <h3 class="projSectionTitle">MUSIC & VIDEO</h3>
+          <p class="projectsParagraph">
+            Since I was young, I've always had a passion for filming and editing video, as well as
+            producing music.  In high school, I played guitar in various bands and later learned
+            how to produce music electronically in DAWs (Digital Audio Workstations) such as Logic, Ableton Live, and Pro Tools.
+            <br><br>
+            During the past couple of years, I've produced music under the name "T.FAR" on SoundCloud as
+            well as a DJ/Producer duo with my good friend Will Miner called "NERVES".  We've performed at several
+            venues around the Spokane, Washington area, including a theatre festival with a crowd of over 500 people.
+            Our tracks have been played thousands of times on SoundCloud, with our most popular reaching 14k.  Check out NERVES
+            <a class="inlineLink" href="https://soundcloud.com/nerves_music">here</a>.
+            <br><br>
+            More recently, I completed a full length album titled "Transitions" along with my friend and fellow musician Kirk Roa.
+            We spent the course of a year recording, editing, mixing, and mastering 8 different songs that comprise genres such as
+            rock, blues, jazz, electronic, and acoustic.  Listen to our album <a class="inlineLink" href="https://open.spotify.com/album/0VBnoK0Ecq29VBjGpOj4sd?si=n5PxHdIcQdqnlKG14EXhRQ">here</a>.
+            <br><br>
+            In addition to solely producing music, I've filmed and edited a collection of guitar covers on YouTube, with
+            one of my videos grossing 25,000 views.  Check out my channel
+            <a class="inlineLink" href="https://www.youtube.com/user/tfavre">here</a>.
+          </p>
+        </div>
+      </section>
+    </div>
+    <footer class="projectsFooter transparentFooter">
+      <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+        <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+      </a>
+      <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+        <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+      </a>
+      <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+        trevordfarthing@gmail.com
+      </a>
+    </footer>
+  </body>
+</html>

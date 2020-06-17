@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Trevor Farthing</title>
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="script/slideMenu.js"></script>
+    <script src="script/typewriter.js"></script>
+  </head>
+  <body style="overflow-x:hidden;" onload="startTypewriter()">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink" style="color:white;">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <div class="homeOuterBlock" id="backgroundBlock">
+      <header class="fadeIn animateDelay homeHeader">
+        <nav class="homeNav">
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
+          <span class="mobileNavText">
+            TREVOR FARTHING
+          </span>
+          <a href="index.html" class="navLink" style="border-bottom: 1px solid white;" id="homeNavLink">HOME</a>
+          <a href="aboutMe.html" class="navLink">ABOUT ME</a>
+          <a href="projects.html" class="navLink">PROJECTS</a>
+          <div class="dropdown">
+            <a href="music.html" id="musicNavLink" class="navLink dropbtn">
+              MUSIC &#x25BE;
+            </a>
+            <span id="musicNavSpan" class="navLink dropbtn">
+              MUSIC &#x25BE;
+            </span>
+            <div class="dropdownContent" id="homeDropDown">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
+          <a href="contact.html" class="navLink">CONTACT</a>
+        </nav>
+      </header>
+      <div class="homeText">
+        <div class="homeTextContainer">
+          <h1 class="homeHeading typewriter">
+            <a class="typewrite typewriter1">
+            </a>
+            <span class="wrap" id="wrap1"></span>
+          </h1>
+          <h2 class="mainHeadings">
+            <a class="typewrite typewriter2">
+            </a>
+            <span class="wrap"></span>
+          </h2>
+        </div>
+      </div>
+      <footer class="fadeIn animateDelay homeFooter">
+        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+        </a>
+        <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+          trevordfarthing@gmail.com
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

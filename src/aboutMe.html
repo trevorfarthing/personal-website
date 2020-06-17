@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About - Trevor Farthing</title>
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="script/slideMenu.js"></script>
+  </head>
+  <body class="blackBackground">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink" style="color:white;">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <div class="aboutOuterBlock" id="backgroundBlock">
+      <header>
+        <nav>
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
+          <span class="mobileNavText">
+            TREVOR FARTHING - ABOUT ME
+          </span>
+          <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
+          <a href="aboutMe.html" class="navLink grayShadow" style="border-bottom: 1px solid white;">ABOUT ME</a>
+          <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
+          <div class="dropdown">
+            <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
+              MUSIC &#x25BE;
+            </a>
+            <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+              MUSIC &#x25BE;
+            </span>
+            <div class="dropdownContent">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
+          <a href="contact.html" class="navLink grayShadow">CONTACT</a>
+        </nav>
+      </header>
+      <div class="mainContent fadeIn">
+        <span class="profileImage" id="responsiveImage">
+          <img src="assets/cutout.png" id="aboutImage" style="width: 100%">
+        </span>
+        <span class="aboutHeading">
+          <h1 id="aboutHeadingTitle">Creatively solving problems and producing results.</h1>
+          <p>
+            Hi, my name is Trevor.  I'm a software developer and musician who loves to
+            help creative projects come to life.  I've worked with an industrial IoT startup, a
+            collaborative development company, a university fundraising team, and a variety of other projects.
+            I'm proficient in a collection of programming languages, as well as the art of recording and
+            mixing music in digital audio workstations. Download my
+            <a class="inlineLink" href="./assets/TrevorFarthingResume.pdf" download>resume</a> for more information.
+          </p>
+          <h5 class="aboutSubHeading">Skills</h5>
+          <div class="skillsList">
+            <span class="skill">.NET Development</span>
+            <span class="skill">Web Development</span>
+            <span class="skill">Music Production</span>
+            <span class="skill">Video Editing</span>
+            <span class="skill">Docker/Kubernetes</span>
+            <span class="skill">HTML/CSS/Javascript</span>
+            <span class="skill">SQL Server, InfluxDB, Oracle</span>
+            <span class="skill">C#, Java, C++, Python</span>
+            <span class="skill">Vue.js</span>
+          </div>
+        </span>
+        <span class="profileImage" id="desktopImage">
+          <img src="assets/cutout.png" id="aboutImage" style="width: 90%">
+        </span>
+        <h5 class="aboutSubHeading">Experience</h5>
+        <div class="experienceList">
+          <div>
+            <a href="https://www.c-labs.com">
+              <img src="assets/c-labs_logo.png" style="vertical-align:middle;" id="logo1">
+            </a>
+            <span class="listEntry">
+              Software Developer, C-Labs Corporation, <i>May 2016 - May 2020</i>
+            </span>
+          </div>
+          <div>
+            <a href="https://dev.inter.codes">
+              <img src="assets/intercodes_logo.png" style="vertical-align:middle;" id="logo2">
+            </a>
+            <span class="listEntry">
+              Frontend Developer, Inter.Codes - Liquid Crystal Studios, <i>September 2017 - present</i>
+            </span>
+          </div>
+          <div>
+            <a href="https://blogs.gonzaga.edu/gonzagagiving/tag/telefund/">
+              <img src="assets/GU_logo.png" style="vertical-align:middle;width:80px" id="logo3">
+            </a>
+            <span class="listEntry">
+              Fundraising Caller, Gonzaga University Telefund, <i>September 2014 - May 2016</i>
+            </span>
+          </div>
+        </div>
+        <h5 class="aboutSubHeading">Education</h5>
+        <div class="experienceList">
+          <span class="listEntry educationEntry">
+            B.S. Computer Science, minor Mathematics, Gonzaga University, <i>May 2018</i>
+          </span>
+        </div>
+      </div>
+      <footer class="aboutFooter transparentFooter">
+        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+        </a>
+        <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+          trevordfarthing@gmail.com
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

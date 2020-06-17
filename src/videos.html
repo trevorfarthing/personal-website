@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Videos - Trevor Farthing</title>
+    <!-- build:css styles/styles.min.css -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- endbuild -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="script/slideMenu.js"></script>
+    <script>
+    function sendToYouTube(url) {
+      if(window.innerWidth <= 768 || document.documentElement.clientWidth <= 768)
+        window.location.href = url;
+    }
+    </script>
+  </head>
+  <body class="blackBackground">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink" style="color:white;">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <div class="musicOuterBlock" id="backgroundBlock">
+      <header>
+        <nav>
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
+          <span class="mobileNavText">
+            TREVOR FARTHING - VIDEOS
+          </span>
+          <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
+          <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
+          <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
+          <div class="dropdown">
+            <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </a>
+            <span id="musicNavSpan" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </span>
+            <div class="dropdownContent">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
+          <a href="contact.html" class="navLink grayShadow">CONTACT</a>
+        </nav>
+      </header>
+      <div class="mainContent fadeIn">
+        <div class="containBlockWide videoBlock">
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ey3LMqF9i8c?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/vRCbXsHc4tA')"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vRCbXsHc4tA?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/m5s9qF5g_ZI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/50zmcISRgJA')"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/50zmcISRgJA?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/PZHV0FOZgVw')"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PZHV0FOZgVw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/v8V3Nq87aoU')"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/v8V3Nq87aoU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/asUPpH8iHkc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/h1AzJ5zLPyQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/QYzTDOyj5eA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Tp1pnfPRmVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <footer class="transparentFooter">
+        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+        </a>
+        <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+          trevordfarthing@gmail.com
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

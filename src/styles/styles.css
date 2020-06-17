@@ -1,0 +1,1113 @@
+/* TODO:
+  - occasionally hover state isn't getting loaded on songs page
+  - slide out menu will not unfocus after appearing on iOS Safari
+  - slide down music menu is not positioned correctly in some browsers on landscape rotation
+  - Remove hover states from links on mobile?
+  - Add GitHub link to contact page?
+ */
+html, body {
+  font-family: khularegular;
+  height: 100%;
+}
+
+/*
+************************
+FONTS
+************************
+ */
+@font-face {
+    font-family: 'khulabold';
+    src: url('../fonts/Khula/khula-bold-webfont.ttf');
+    src: url('../fonts/Khula/khula-bold-webfont.eot');
+    src: url('../fonts/Khula/khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Khula/khula-bold-webfont.woff2') format('woff2'),
+         url('../fonts/Khula/khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'khularegular';
+    src: url('../fonts/Khula/khula-regular-webfont.ttf');
+    src: url('../fonts/Khula/khula-regular-webfont.eot');
+    src: url('../fonts/Khula/khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Khula/khula-regular-webfont.woff2') format('woff2'),
+         url('../fonts/Khula/khula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+************************
+ANIMATIONS
+************************
+*/
+
+/* Fade animation */
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide from right animation */
+@-webkit-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-moz-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-o-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+/*
+************************
+GLOBAL STYLES
+************************
+*/
+header {
+  padding: 40px;
+  position: fixed;
+  z-index: 1;
+  background: #1e2126;
+  width: 100%;
+}
+nav {
+  right: 50px;
+  top: 34px;
+  position: fixed;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size:3em;
+}
+h3 {
+  font-size: 2em;
+}
+footer {
+  padding:10px;
+  width:100%;
+  color: white;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+.socialLink:hover {
+  color:#a8a8a8;
+  cursor: pointer;
+}
+.socialLink {
+  color:white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+p {
+  padding:30px 0px;
+  letter-spacing: 1px;
+  line-height:25px;
+}
+h5 {
+  font-size:1.2em;
+  font-family: khulabold;
+}
+i {
+  font-style:italic;
+}
+.inlineLink {
+  color:#ffcb63;
+  transition: all 0.3s ease;
+}
+.inlineLink:hover {
+  text-decoration: underline;
+}
+.transparentFooter {
+  background:rgba(0,0,0,0.2);
+}
+.mobileNavText {
+  float: right;
+  margin-right: 40px;
+  letter-spacing: 3px;
+  color: white;
+  font-size: 12px;
+  display: none;
+  height: 26px;
+  line-height: 26px;
+}
+.blackBackground {
+  background: #1e2126;
+}
+
+/*
+************************
+HOME PAGE STYLES
+************************
+*/
+.homeHeader {
+  background: rgba(0, 0, 0, 0.2);
+}
+.homeOuterBlock {
+  height:100%;
+  background:url("../assets/snow.jpg");
+  background-color:black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+}
+.fadeIn {
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity:0;
+}
+.animateDelay {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+}
+.shortAnimateDelay {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay:2s;
+  animation-delay: 2s;
+}
+.homeNav {
+  right: -200px;
+  /* Fade animations */
+  -webkit-animation: slide-from-right 2s 1;
+  -moz-animation: slide-from-right 3s 1;
+  -o-animation: slide-from-right 3s 1;
+  animation: slide-from-right 2s 1;
+
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.navLink {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size:1.2em;
+  letter-spacing: 5px;
+  transition: all 0.5s ease;
+}
+.navLink:hover {
+  text-shadow: 2px 5px 5px black;
+}
+#homeDropDown {
+  background: rgba(42, 46, 54, 0.5);
+}
+#homeDropDown a {
+  color: rgba(255, 255, 255, 0.5);
+}
+#homeDropDown a:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(42, 46, 54, 0.5);
+}
+.homeText {
+  color:white;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.homeTextContainer {
+  width:100%;
+  position: relative;
+}
+.homeHeading {
+  text-shadow: 2px 5px 10px black;
+  padding-top: 73px;
+}
+.homeFooter {
+  background:rgba(0,0,0,0.2);
+  position:fixed;
+  bottom:0;
+}
+#linkedInFooterIcon, #facebookFooterIcon {
+  font-size: 1.75em;
+  margin-right: 10px;
+  top:1px;
+  vertical-align: middle;
+  position: relative;
+}
+#mailLink {
+  position: relative;
+  top:2px;
+}
+.mainHeadings {
+  position:relative;
+  padding-top:20px;
+  color: white;
+  height:62px;
+}
+.typewrite {
+  color: white;
+  text-decoration: none;
+}
+
+
+/*
+************************
+CONTACT PAGE STYLES
+************************
+*/
+.contactOuterBlock {
+  height: 100%;
+  background-color: #1e2126;
+  display:flex;
+  align-items: center;
+}
+.containBlock {
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+}
+.mainContactBlock {
+  width: 100%;
+}
+.contactHeading {
+  color: white;
+  text-align: center;
+  padding-bottom: 40px;
+  text-shadow: 2px 5px 10px black;
+}
+.contactPhoto {
+  width: 70%;
+  height: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+.contactPhotoBlock {
+  padding: 20px;
+  display: flex;
+}
+.contactLinkBlock {
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+.contactLink {
+  color: white;
+  font-size: 5em;
+  /* width: 15%; */
+  width: 70px;
+  height: 80px;
+}
+.contactLinkIcon {
+  position: relative;
+  transition: all 0.5s ease;
+}
+.contactLinkIcon:hover {
+  transform: scale(1.1);
+}
+.contactLink:hover + .contactIcon {
+  text-shadow: 2px 5px 10px black;
+  text-align: center;
+  padding:20px 0px 100px;
+}
+#contactLinkFB {
+  width: 80px;
+}
+#contactLinkYT {
+  width:90px;
+}
+#contactLinkIconFB {
+  position: relative;
+  transition: all 0.5s ease;
+}
+#contactLinkIconFB:hover, #contactLinkIconFB:active {
+  transform: scale(1.1);
+  color: #4267B2;
+}
+#contactLinkIconYT {
+  position: relative;
+  transition: all 0.5s ease;
+}
+#contactLinkIconYT:hover {
+  transform: scale(1.1);
+  color: #FF0000;
+}
+#contactLinkIconLI:hover {
+  color: #2867B2;
+}
+#contactLinkIconINSTA:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#contactLinkIconEMAIL:hover {
+  color:#a8a8a8;
+}
+
+/*
+************************
+ABOUT PAGE STYLES
+************************
+*/
+
+.aboutOuterBlock {
+  background: #1e2126;
+  height: 100%;
+}
+.mainContent {
+  width:100%;
+  padding: 100px 50px 50px 50px;
+  box-sizing: border-box;
+  color:white;
+}
+.aboutHeading {
+  margin:0px;
+  margin-top: 50px;
+  width:50%;
+  display: inline-block;
+}
+.aboutFooter {
+  position: fixed;
+  bottom: 0;
+}
+.profileImage {
+  background-size: 600px;
+  margin:0px;
+  display: inline-block;
+  position:absolute;
+}
+.grayShadow:hover {
+  text-shadow: 2px 5px 5px white;
+  color:#ffcb63;
+}
+.skillsList {
+  position:relative;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width:100%;
+  margin:20px 0px 30px;
+}
+.skill {
+  color:#a8a8a8;
+  padding:10px;
+  font-style:italic;
+  width:30%;
+  box-sizing: border-box;
+}
+.experienceList {
+  margin:20px 0px 40px;
+}
+.listEntry {
+  color:#a8a8a8;
+}
+.educationEntry {
+  padding-left:30px;
+}
+#logo1 {
+  margin-right:10px;
+}
+#logo1:hover {
+  cursor: pointer;
+  filter: sepia() saturate(10000%) hue-rotate(110deg) contrast(90%);
+  -webkit-filter: sepia() saturate(10000%) hue-rotate(110deg) contrast(90%);
+}
+#logo2 {
+  margin-left:8px;
+  margin-right:20px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+#logo2:hover {
+  -webkit-filter: grayscale(0%);
+   filter: grayscale(0%);
+}
+#logo3 {
+  margin-right:8px;
+  -webkit-filter: invert(100%) saturate(0%);
+  filter: invert(100%) saturate(0%);
+  transition: all 0.2s ease;
+}
+#logo3:hover {
+  -webkit-filter: invert(0%);
+  filter: invert(0%);
+}
+#responsiveImage {
+  display: none;
+}
+#aboutImage {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+/*
+************************
+MUSIC PAGE STYLES
+************************
+*/
+
+.containBlockWide {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.musicOuterBlock {
+  background: #1e2126;
+}
+.musicBox {
+  position: relative;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.songBox {
+  width: 30%;
+  background-color: black;
+  margin-bottom: 40px;
+  transition: all 0.5s ease;
+  position: relative;
+}
+.songParent {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: black;
+  transition: all 0.5s ease;
+}
+.albumArt {
+  width:100%;
+  transition: all 0.5s ease;
+}
+.songCaption {
+  font-size: 0.7em;
+  color: #a8a8a8;
+  padding-left: 10px;
+  transition: all 0.5s ease;
+}
+.musicLink {
+  color: #a8a8a8;
+  transition: all 0.2s ease;
+  font-size: 2.5em;
+  float:right;
+  margin-right: 10px;
+}
+.soundcloudLink:hover {
+  color: #ff7700;
+}
+.spotifyLink:hover {
+  color: #1DB954;
+}
+.bandcampLink:hover {
+  color: #477987;
+}
+.songTitle {
+  position: relative;
+  top:10px;
+}
+.playButton {
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.playIcon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size:60px;
+  z-index: 10;
+}
+.playIcon:hover {
+  cursor: pointer;
+}
+.circleSlider {
+  position: absolute;
+  transform:translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+/*
+************************
+PROJECTS PAGE STYLES
+************************
+*/
+.projectsOuterBlock {
+  height:100%;
+  width:100%;
+}
+.projectsHeading {
+  margin-bottom: 70px;
+}
+.projImage1 {
+  padding:100px;
+  padding-top:200px;
+}
+.projectPhoto {
+  width:30%;
+  height:30%;
+  text-align: center;
+  transition: all 0.5s ease;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+.projectPhoto:hover {
+  transform:scale(1.1);
+}
+.projectPhotos {
+  padding:50px 0px;
+  position: relative;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.caption {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 5px 10px black;
+  color:white;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay:1s;
+  animation-delay: 1s;
+}
+.subtitle {
+  background-color: #111;
+  text-shadow: none;
+  padding: 18px;
+  letter-spacing: 10px;
+  font-size: 1.4em;
+  color:white;
+  transition: all 0.5s ease;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.subtitle:hover {
+  transform:scale(1.1);
+}
+.projSectionTitle {
+  background-color:transparent;
+  color: white;
+  letter-spacing: 10px;
+  height:100%;
+  text-align: center;
+  /* border-bottom: 1px solid white; */
+  padding-bottom: 5px;
+  margin: 0px 10px 0px;
+  box-shadow: 0 8px 8px -8px white;
+}
+.projSectionInfo {
+  color:#ddd;
+  text-align:center;
+  padding:50px 0px 0px 0px;
+  text-align: justify;
+}
+#overview {
+  color: white;
+  background-color:gray;
+  text-align:center;
+  padding:50px 80px 20px 80px;
+  text-align: justify;
+  box-shadow: 0px 0px 10px 5px white;
+}
+
+/*
+***************************
+VIDEO PAGE STYLES
+***************************
+*/
+.videoBlock {
+  text-align: center;
+  position: relative;
+}
+.iFrameContainer {
+  position: relative;
+  width:100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 50px;
+}
+.iFrameContainer iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+}
+.iFrameCover {
+  position:absolute;
+  background-color:transparent;
+  width:100%;
+  height:100%;
+  z-index:1;
+  display: none;
+}
+
+/*
+***************************
+MUSIC DROP DOWN MENU STYLES
+***************************
+*/
+/* The dropdown container */
+.dropdown {
+  display: inline;
+}
+/* Dropdown button */
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+}
+/* Dropdown content (hidden by default) */
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #2a2e36;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: 460px;
+  margin-top: 4px;
+  height: 118px;
+}
+/* Links inside the dropdown */
+.dropdownContent a {
+  float: none;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size:1.2em;
+  letter-spacing: 5px;
+}
+.transparent {
+  opacity: 0.5;
+}
+/* Add a grey background color to dropdown links on hover */
+.dropdownContent a:hover {
+  background-color: #3c424d;
+}
+#musicNavSpan {
+  display: none;
+}
+
+/*
+************************
+SLIDE OUT MENU STYLES
+************************
+*/
+#menuButton {
+  color: white;
+  float:left;
+  font-size: 1.5em;
+  display: none;
+}
+#menuButton:hover {
+  cursor: pointer;
+}
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: -100%;
+  background-color: #1e2126;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: left 0.7s ease;
+}
+.sidenav a {
+  padding: 20px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+  font-size:1.2em;
+  letter-spacing: 5px;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sideNavLink:hover {
+  background-color: #2a2e36;
+}
+.sidenav .closebtn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#sideNavMenu {
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*
+************************
+MEDIA QUERIES
+************************
+*/
+@media all and (max-width:1024px) {
+  .homeOuterBlock {
+    background-position: 40%;
+  }
+  .profileImage {
+    width:65%;
+    display: block;
+    top:100px;
+    position: static;
+    margin: 0 auto;
+  }
+  .aboutHeading {
+    width:100%;
+    display:block;
+  }
+  .aboutHeading h1 {
+    text-align: center;
+  }
+  .aboutFooter {
+    position: relative;
+  }
+  #responsiveImage {
+    display:block;
+  }
+  #desktopImage {
+    display:none;
+  }
+  #musicNavSpan {
+    display: inline;
+    cursor: default;
+  }
+  #musicNavLink {
+    display: none;
+  }
+}
+@media all and (min-width: 806px) and (max-width:1024px) {
+  header {
+    text-align: center;
+    box-sizing: border-box;
+  }
+  nav {
+    position: static;
+  }
+  #homeNavLink {
+    margin-left: 0px;
+  }
+  .dropdownContent {
+    left: calc(50vw + 84px);
+  }
+}
+@media all and (max-width:805px) {
+  nav {
+    position: static;
+    right: 0px;
+    margin: 0 auto;
+    text-align: center;
+    height:26px;
+  }
+  header {
+    width: 100%;
+    padding: 20px;
+  }
+  .navLink {
+    display: none;
+  }
+  #menuButton {
+    display: inline;
+  }
+  .mobileNavText {
+    display: inline;
+  }
+  #musicNavSpan {
+    display: none;
+  }
+}
+@media all and (max-width:840px) {
+  .projSectionInfo {
+    padding:20px 40px;
+  }
+}
+@media all and (max-width:768px) {
+  .songBox {
+    width:45%;
+  }
+  .mainContactBlock {
+    padding-top: 10px;
+  }
+  .contactHeading {
+    padding:20px 20px 40px;
+  }
+  .contactLink {
+    width: 42px;
+    height: 48px;
+    font-size: 3em;
+  }
+  #contactLinkFB {
+    width: 48px;
+  }
+  #contactLinkYT {
+    width: 54px;
+  }
+  .contactLinkBlock {
+    padding: 40px 20px 20px;
+  }
+  .navLink {
+    font-size:0.8em;
+    margin: 0px;
+    padding:10px;
+  }
+  h1 {
+    font-size:3em;
+  }
+  h2 {
+    font-size:2.5em;
+  }
+  h3 {
+    font-size:1.5em;
+  }
+  header {
+    padding:20px;
+  }
+  footer {
+    font-size: 0.8em;
+  }
+  .aboutSubHeading {
+    text-align: center;
+    padding-top:30px;
+  }
+  #logo1, #logo2, #logo3 {
+    display:block;
+    margin:0 auto;
+    padding:20px;
+  }
+  #logo1 {
+    padding-top:0px;
+  }
+  .experienceList {
+    text-align: center;
+  }
+  .educationEntry {
+    padding-top: 40px;
+    padding-left:0px;
+  }
+  .subtitle {
+    font-size:1em;
+  }
+  #overview {
+    padding:40px 40px 20px;
+  }
+  .projSectionInfo {
+    padding:20px 20px;
+  }
+  nav {
+    line-height: 20px;
+  }
+  .aboutHeading {
+    text-align: center;
+  }
+  .mainContent {
+    padding: 100px 30px 30px 30px;
+  }
+  .homeHeading {
+    padding-top: 65px;
+  }
+  #contactTitle {
+    font-size: 2.5em;
+  }
+  .dropdownContent {
+    font-size: 0.8em;
+  }
+}
+@media all and (max-width:600px) {
+  .songBox {
+    width:90%;
+  }
+  .skill {
+    width:100%;
+  }
+  #responsiveImage {
+    width: 80%;
+  }
+  #aboutHeadingTitle {
+    font-size: 2.5em;
+  }
+  .listEntry {
+    line-height: 25px;
+  }
+  .iFrameCover {
+    display: block;
+  }
+  .contactHeading {
+    padding-bottom: 20px;
+  }
+  .contactLinkBlock {
+    padding-top: 20px;
+  }
+}
+@media all and (min-width: 768px) and (max-height:1000px) {
+  #contactFooter {
+    position: relative;
+  }
+}
+@media all and (max-height: 600px) {
+  #contactFooter {
+    position: relative;
+  }
+  .contactOuterBlock {
+    height: auto;
+  }
+  .contactHeading {
+    margin-top: 100px;
+  }
+  .contactLinkBlock {
+    padding-bottom: 100px;
+  }
+}
+@media all and (max-height: 830px) and (min-width: 805px) {
+  .contactOuterBlock {
+    height: auto;
+  }
+  .contactHeading {
+    margin-top: 100px;
+  }
+  .contactLinkBlock {
+    padding-bottom: 100px;
+  }
+}
+@media all and (max-width: 520px) {
+  .projectsParagraph {
+    letter-spacing: 0px;
+    text-align: initial;
+  }
+  .projImage1 {
+    padding: 50px;
+    padding-top: 200px;
+  }
+}
+@media all and (max-width:400px) {
+  .contactLink {
+    font-size: 2em;
+    width: 28px;
+    height: 32px;
+  }
+  #contactLinkFB {
+    width: 32px;
+  }
+  #contactLinkYT {
+    width: 36px;
+  }
+  .projSectionTitle {
+    margin: 0px;
+  }
+  .contactIcon {
+    font-size: 40px;
+  }
+  .contactLink {
+    padding:10px;
+  }
+  .contactLinkText {
+    font-size: 1em;
+  }
+  .mainHeadings {
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 1023px) and (orientation: landscape) {
+  .navLink {
+    display: inline;
+  }
+  #menuButton {
+    display: none;
+  }
+  .mobileNavText {
+    display: none;
+  }
+  #musicNavSpan {
+    display: inline;
+  }
+  .iFrameCover {
+    display: block;
+  }
+  header {
+    text-align: center;
+    box-sizing: border-box;
+  }
+  nav {
+    position: static;
+  }
+  #homeNavLink {
+    margin-left: 0px;
+  }
+  .dropdownContent {
+    left: calc(50vw + 63px);
+  }
+}
