@@ -6,7 +6,7 @@
   - Add GitHub link to contact page?
  */
 html, body {
-  font-family: khularegular;
+  font-family: khularegular, Helvetica;
   height: 100%;
 }
 
@@ -146,7 +146,7 @@ p {
 }
 h5 {
   font-size:1.2em;
-  font-family: khulabold;
+  font-family: khulabold, Helvetica;
 }
 i {
   font-style:italic;
@@ -813,6 +813,16 @@ SLIDE OUT MENU STYLES
 
 /*
 ************************
+ERROR PAGE
+************************
+*/
+.errorText {
+  text-align: center;
+  color: white;
+}
+
+/*
+************************
 MEDIA QUERIES
 ************************
 */
@@ -985,6 +995,9 @@ MEDIA QUERIES
   }
   .dropdownContent {
     font-size: 0.8em;
+  }
+  .errorText {
+    font-size: 2em;
   }
 }
 @media all and (max-width:600px) {
