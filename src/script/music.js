@@ -1,13 +1,12 @@
 'use strict';
 // Order of SC Widget events:
-// Very first time a track is played on page: play --loading-- play
+// Very first time a track is played on page (or after track completely finishes): play --loading-- play
 // After this (first time a track that hasn't been played yet is played OR when a track is seeked when paused and then played): play pause play --loading-- play
 // Second time onwards: play play pause --loading-- play
 class trackInfo {
-  constructor(index, playEvents, hasPlayed) {
+  constructor(index, playEvents) {
     this.index = index;
     this.playEvents = playEvents;
-    this.hasPlayed = hasPlayed;
   }
 }
 let trackList = [
@@ -42,10 +41,11 @@ let updateSlider = false;
 let sliderRadius = 75;
 let shouldBePlaying = false;
 let playEvents = 0;
+let pauseIconSet = false;
 
 function createTrackMap() {
   for(let i = 0; i < trackList.length; i++) {
-    trackMap[trackList[i]] = new trackInfo(i, 0, false);
+    trackMap[trackList[i]] = new trackInfo(i, 0);
   }
 }
 
@@ -139,7 +139,7 @@ $(document).ready(function(e) {
     $('.playIcon').click(function(event) {
       let icon = $(this);
       $('.playIcon').not(this).each(function() {
-        $(this).removeClass('fa-pause');
+        $(this).removeClass('fa-pause fa-spinner fa-spin loadingIcon');
         $(this).addClass('fa-play');
       });
 
@@ -152,7 +152,6 @@ $(document).ready(function(e) {
             updateSlider = false;
             widget.unbind(SC.Widget.Events.PAUSE);
             widget.bind(SC.Widget.Events.PAUSE, function() {
-              console.log("pause");
               $(icon).removeClass('fa-pause fa-spinner fa-spin loadingIcon');
               $(icon).addClass('fa-play');
             });
@@ -165,28 +164,28 @@ $(document).ready(function(e) {
             updateSlider = false;
             widget.pause();
             widget.skip(trackMap[icon[0].id].index);
+            if(source !== "")
+              trackMap[source].playEvents = 0;
             source = icon[0].id;
             let playbackPosition = $(icon.siblings('.circleSlider')[0]).roundSlider('option', 'value') * 1000;
             widget.seekTo(playbackPosition);
             updateSlider = true;
             widget.unbind(SC.Widget.Events.PLAY);
             widget.bind(SC.Widget.Events.PLAY, function() {
-              console.log("play");
               playEvents++;
               trackMap[icon[0].id].playEvents++;
-              if(playEvents === 1 || (playEvents >= 1 && trackMap[icon[0].id].playEvents === 2 && !trackMap[icon[0].id].hasPlayed)) {
+              pauseIconSet = false;
+              if(playEvents === 1 || (playEvents > 2 && trackMap[icon[0].id].playEvents === 2)) {
                 // Set icon to loading until sound fully loads
-                setTimeout(function() {
-                  widget.getPosition(function(position) {
-                    if(shouldBePlaying && position === 0) {
-                      $(icon).removeClass("fa-play fa-pause");
-                      $(icon).addClass("fa-spinner fa-spin loadingIcon");
-                    }
-                  });
-                }, 1000);
-                trackMap[icon[0].id].hasPlayed = true;
+                widget.getPosition(function(position) {
+                  if(shouldBePlaying && position === playbackPosition && !pauseIconSet) {
+                    $(icon).removeClass("fa-play fa-pause");
+                    $(icon).addClass("fa-spinner fa-spin loadingIcon");
+                  }
+                });
               }
               else {
+                pauseIconSet = true;
                 $(icon).removeClass('fa-play fa-spinner fa-spin loadingIcon');
                 $(icon).addClass('fa-pause');
               }
@@ -212,9 +211,14 @@ $(document).ready(function(e) {
 
   // When sound finishes playing
   widget.bind(SC.Widget.Events.FINISH, function() {
+    widget.unbind(SC.Widget.Events.PLAY);
+    widget.unbind(SC.Widget.Events.PAUSE);
     let icon = $("#" + source);
     icon.removeClass("fa-pause fa-spinner fa-spin loadingIcon");
     icon.addClass("fa-play");
+    trackMap[source].playEvents = 0;
+    shouldBePlaying = false;
+    playEvents = 0;
     widget.pause();
   });
 });
