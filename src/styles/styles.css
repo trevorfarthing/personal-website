@@ -582,6 +582,10 @@ MUSIC PAGE STYLES
   transform:translate(-50%, -50%);
   transition: all 0.5s ease;
 }
+.loadingIcon {
+  top: -27px;
+  left: -30px;
+}
 
 /*
 ************************

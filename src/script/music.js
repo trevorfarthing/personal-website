@@ -1,34 +1,53 @@
 'use strict';
-
-let trackMap = {
-  'PuzzlePieces' : 0,
-  'FlyAway' : 1,
-  'Dawn' : 2,
-  'Daylight' : 3,
-  'WolvesRemix' : 4,
-  'Memento' : 5,
-  'FetishRemix' : 6,
-  'DMs' : 7,
-  'LastChance' : 8,
-  'FeelingThisIntro' : 9,
-  'MyOwnWorstEnemyRemix' : 10,
-  'HeavyRemix' : 11,
-  'Dungeon' : 12,
-  'CompetitionMix' : 13,
-  'BoysofSummerRemix2' : 14,
-  'PumpkinSpiceMix' : 15,
-  'ChillaxMix' : 16,
-  'ClocksRemix' : 17,
-  'TheSun' : 18,
-  'HandsOfFools' : 19,
-  'Damaging' : 20,
-  'LostAtSea' : 21,
-  'SheWasMine' : 22,
-  'SweatherWeather' : 23
-};
+// Order of SC Widget events:
+// Very first time a track is played on page (or after track completely finishes): play --loading-- play
+// After this (first time a track that hasn't been played yet is played OR when a track is seeked when paused and then played): play pause play --loading-- play
+// Second time onwards: play play pause --loading-- play
+class trackInfo {
+  constructor(index, playEvents) {
+    this.index = index;
+    this.playEvents = playEvents;
+  }
+}
+let trackList = [
+  'PuzzlePieces',
+  'FlyAway',
+  'Dawn',
+  'Daylight',
+  'WolvesRemix',
+  'Memento',
+  'FetishRemix',
+  'DMs',
+  'LastChance',
+  'FeelingThisIntro',
+  'MyOwnWorstEnemyRemix',
+  'HeavyRemix',
+  'Dungeon',
+  'CompetitionMix',
+  'BoysofSummerRemix2',
+  'PumpkinSpiceMix',
+  'ChillaxMix',
+  'ClocksRemix',
+  'TheSun',
+  'HandsOfFools',
+  'Damaging',
+  'LostAtSea',
+  'SheWasMine',
+  'SweatherWeather'
+];
+let trackMap = {};
 let source = '';
 let updateSlider = false;
 let sliderRadius = 75;
+let shouldBePlaying = false;
+let playEvents = 0;
+let pauseIconSet = false;
+
+function createTrackMap() {
+  for(let i = 0; i < trackList.length; i++) {
+    trackMap[trackList[i]] = new trackInfo(i, 0);
+  }
+}
 
 // Resize the radius of slider for smaller screens
 $(window).on('resize', function() {
@@ -41,6 +60,7 @@ $(window).on('resize', function() {
 
 $(document).ready(function(e) {
 
+  createTrackMap();
   var widget = SC.Widget('sc-player');
   widget.bind(SC.Widget.Events.READY, function() {
 
@@ -81,7 +101,7 @@ $(document).ready(function(e) {
     $(".circleSlider").on("change", function(e) {
       let icon = $(this).siblings('.playIcon');
       widget.getCurrentSoundIndex(function(index) {
-        if(index === trackMap[icon[0].id]) {
+        if(index === trackMap[icon[0].id].index) {
           widget.seekTo(e.value * 1000);
         }
       });
@@ -92,7 +112,7 @@ $(document).ready(function(e) {
       let icon = $(this).siblings('.playIcon');
       widget.isPaused(function(paused) {
         widget.getCurrentSoundIndex(function(index) {
-          if(!paused && index === trackMap[icon[0].id])
+          if(!paused && index === trackMap[icon[0].id].index)
           {
             updateSlider = false;
           }
@@ -107,7 +127,7 @@ $(document).ready(function(e) {
       widget.seekTo(e.value * 1000);
       widget.isPaused(function(paused) {
         widget.getCurrentSoundIndex(function(index) {
-          if(!paused && index === trackMap[icon[0].id])
+          if(!paused && index === trackMap[icon[0].id].index)
           {
             updateSlider = true;
           }
@@ -119,35 +139,62 @@ $(document).ready(function(e) {
     $('.playIcon').click(function(event) {
       let icon = $(this);
       $('.playIcon').not(this).each(function() {
-        $(this).removeClass('fa-pause');
+        $(this).removeClass('fa-pause fa-spinner fa-spin loadingIcon');
         $(this).addClass('fa-play');
       });
-      $(this).toggleClass('fa-play fa-pause');
 
       // If current sound is playing, pause it
       widget.isPaused(function(paused) {
         let newOrPaused = paused;
         widget.getCurrentSoundIndex(function(index) {
-          newOrPaused = newOrPaused || index !== trackMap[icon[0].id];
+          newOrPaused = newOrPaused || index !== trackMap[icon[0].id].index;
           if(!newOrPaused) {
             updateSlider = false;
+            widget.unbind(SC.Widget.Events.PAUSE);
+            widget.bind(SC.Widget.Events.PAUSE, function() {
+              $(icon).removeClass('fa-pause fa-spinner fa-spin loadingIcon');
+              $(icon).addClass('fa-play');
+            });
             widget.pause();
+            shouldBePlaying = false;
+            trackMap[icon[0].id].playEvents = 0;
           }
-          // If paused or starting a new track, seek sound to the position of the slider and play. Update value of slider when PLAY_PROGRESS event occurs
+          // If paused or starting a new track, seek sound to the position of the slider and play.
           else {
             updateSlider = false;
             widget.pause();
-            widget.skip(trackMap[icon[0].id]);
+            widget.skip(trackMap[icon[0].id].index);
+            if(source !== "")
+              trackMap[source].playEvents = 0;
             source = icon[0].id;
             let playbackPosition = $(icon.siblings('.circleSlider')[0]).roundSlider('option', 'value') * 1000;
             widget.seekTo(playbackPosition);
             updateSlider = true;
             widget.unbind(SC.Widget.Events.PLAY);
             widget.bind(SC.Widget.Events.PLAY, function() {
+              playEvents++;
+              trackMap[icon[0].id].playEvents++;
+              pauseIconSet = false;
+              if(playEvents === 1 || (playEvents > 2 && trackMap[icon[0].id].playEvents === 2)) {
+                // Set icon to loading until sound fully loads
+                widget.getPosition(function(position) {
+                  if(shouldBePlaying && position === playbackPosition && !pauseIconSet) {
+                    $(icon).removeClass("fa-play fa-pause");
+                    $(icon).addClass("fa-spinner fa-spin loadingIcon");
+                  }
+                });
+              }
+              else {
+                pauseIconSet = true;
+                $(icon).removeClass('fa-play fa-spinner fa-spin loadingIcon');
+                $(icon).addClass('fa-pause');
+              }
+              // Set slider max to duration of sound
               widget.getDuration(function(duration) {
                 $(icon.siblings('.circleSlider')[0]).roundSlider('option', 'max', duration / 1000);
               });
             });
+            // Update value of slider as PLAY_PROGRESS occurs
             widget.unbind(SC.Widget.Events.PLAY_PROGRESS);
             widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(progress) {
               if(updateSlider) {
@@ -155,7 +202,7 @@ $(document).ready(function(e) {
               }
             });
             widget.play();
-            // Set icon to loading until sound fully loads?
+            shouldBePlaying = true;
           }
         });
       });
@@ -164,8 +211,14 @@ $(document).ready(function(e) {
 
   // When sound finishes playing
   widget.bind(SC.Widget.Events.FINISH, function() {
+    widget.unbind(SC.Widget.Events.PLAY);
+    widget.unbind(SC.Widget.Events.PAUSE);
     let icon = $("#" + source);
-    icon.toggleClass('fa-play fa-pause');
+    icon.removeClass("fa-pause fa-spinner fa-spin loadingIcon");
+    icon.addClass("fa-play");
+    trackMap[source].playEvents = 0;
+    shouldBePlaying = false;
+    playEvents = 0;
     widget.pause();
   });
 });
