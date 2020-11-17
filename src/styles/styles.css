@@ -488,6 +488,19 @@ ABOUT PAGE STYLES
   -webkit-filter: invert(0%);
   filter: invert(0%);
 }
+#logo4 {
+  margin-left: 15px;
+  margin-right: 23px;
+  width: 50px;
+  height: 43.83px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+#logo4:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
 #responsiveImage {
   display: none;
 }
@@ -958,13 +971,13 @@ MEDIA QUERIES
     text-align: center;
     padding-top:30px;
   }
-  #logo1, #logo2, #logo3 {
+  #logo1, #logo2, #logo3, #logo4 {
     display:block;
     margin:0 auto;
     padding:20px;
   }
-  #logo1 {
-    padding-top:0px;
+  #logo4 {
+    padding-top:10px;
   }
   .experienceList {
     text-align: center;
